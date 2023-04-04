@@ -1,0 +1,1 @@
+go build -o server -mod=vendor ./src

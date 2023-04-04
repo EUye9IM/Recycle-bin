@@ -1,0 +1,80 @@
+call plug#begin(join([$VIM,'vim_plug'],'/'))
+Plug 'morhetz/gruvbox'
+Plug 'luochen1990/rainbow'
+Plug 'skywind3000/vim-auto-popmenu' 
+call plug#end()
+
+" font
+set guifont=JetBrains\ Mono:h14
+
+" style
+set nu
+set list
+set listchars=tab:\|\ >,lead:.,trail:.,extends:>,precedes:<
+set tabstop=4
+set shiftwidth=4
+colorscheme gruvbox
+set bg=dark
+
+" edit
+set encoding=utf-8
+set fileencodings=utf-8,gb18030,default,latin1
+set fileencoding=utf-8
+set backspace=indent,eol,start
+"set noexpandtab
+
+" other
+set noundofile
+set noswapfile
+set display:uhex,lastline
+set linebreak
+
+" map
+inoremap <C-L> <ESC>`^
+vnoremap <C-L> <ESC>
+nnoremap z i<BS><ESC>`^
+
+"" save
+nnoremap <C-S-s> :w!<CR>
+inoremap <C-S-s> <ESC>:w!<CR>`^
+vnoremap <C-S-s> <ESC>:w!<CR>
+noremap <C-s> <C-s>
+"" undo
+inoremap <C-S-z> <ESC>ua
+nnoremap <C-S-z> u
+noremap <C-z> <C-z>
+"" 
+inoremap <C-S-y> <ESC><C-r>a
+nnoremap <C-S-y> <C-r>
+noremap <C-y> <C-y>
+
+inoremap <C-S-a> <ESC>ggVG
+vnoremap <C-S-a> <ESC>ggVG
+nnoremap <C-S-a> ggVG
+noremap <C-a> <C-a>
+
+inoremap <C-S-x> <ESC>"+dda
+vnoremap <C-S-x> "+d
+nnoremap <C-S-x> "+dd
+noremap <C-x> <C-x>
+
+inoremap <C-S-c> <ESC>"+yya
+vnoremap <C-S-c> "+y
+nnoremap <C-S-c> "+yy
+noremap <C-c> <C-c>
+
+inoremap <C-S-v> <ESC>"+p`]a
+vnoremap <C-S-v> x"+P`]
+nnoremap <C-S-v> "+p`]
+cnoremap <C-S-v> <C-r>+
+noremap <C-v> <C-v>
+
+nnoremap j gj
+nnoremap k gk
+
+" plugs
+let g:apc_enable_ft = {'*':1}
+set cpt=.,k,w,b
+set completeopt=menu,menuone,noselect
+set shortmess+=c
+let g:rainbow_active = 1

@@ -1,0 +1,16 @@
+{
+  "name": "binary_tree_visualization",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "publish": "electron-packager . binary_tree_visualization --win --out build --arch=x64 --overwrite --ignore=node_modules --icon=web/icon.ico"
+  },
+  "version": "1.0.0",
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "electron": "^13.1.7",
+    "electron-packager": "^15.3.0"
+  }
+}

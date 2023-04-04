@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>二叉树数据结构可视化</title>
+	<link rel="icon" href="icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="style.css">
+	<script src="smalltalk.min.js"></script>
+	<script src="main.js" defer></script>
+</head>
+
+<body style="margin: 0 0;">
+	<!--页面-->
+	<div id="fullview">
+		<canvas id="cvs" width="1000" height="800" title="鼠标拖动可以调整视角">
+			<!--画布-->
+		</canvas>
+		<aside>
+			<h1 id="title">二叉树数据结构可视化</h1>
+			<!--输入-->
+			<label class="text" for="treetext">二叉树数据</label>
+			<textarea name="treetext" id="treetext" onkeyup="flesh_();" title="二叉树数据用数组描述；
+以西文逗号为分隔；1 为根节点；
+对于节点 i ，2*i 为左子树，2*i+1 为右子树；
+不存在的节点以 null 填充。
+"></textarea>
+
+			<label class="text" for="treeOrder">二叉树遍历方式</label>
+			<span class="text" id="threadCB">
+				<input type="checkbox" name="threaded" id="threaded" value="on" onchange="flesh()">线索化
+			</span>
+			<select class="text" name="treeOrder" id="treeOrder" onchange="flesh()">
+				<option class="text" value="preorder" selected>先序遍历</option>
+				<option class="text" value="inorder">中序遍历</option>
+				<option class="text" value="postorder">后序遍历</option>
+				<!--
+				<option class="text" value="threaded-preorder">先序遍历线索化</option>
+				<option class="text" value="threaded-inorder">中序遍历线索化</option>
+				<option class="text" value="threaded-postorder">后序遍历线索化</option>
+				-->
+			</select>
+			<div>
+				<button class="text" onclick="resetData()">重置数据</button>
+				<button class="text" onclick="resetCvs()">重置视角</button>
+			</div>
+			<div id="devide"></div>
+			<!--输出-->
+			<div class="text">二叉树遍历结果</div>
+			<textarea id="answer" readonly></textarea>
+			<strong>二叉树节点个数：</strong><span class="text" id="nodeNum">0</span>
+			<br>
+			<strong>二叉树叶子节点个数：</strong><span class="text" id="leafNodeNum">0</span>
+			<br>
+			<strong>二叉树深度：</strong><span class="text" id="treeDepth">0</span>
+			<br>
+			<div id="devide"></div>
+			<div id="nodeData">
+				<table>
+					<thead class="text">
+						<tr>
+							<th title="lchild">左子节点<br>lChild</th>
+							<th class="threadedData" title="lTag">左标签<br>lTag</th>
+							<th title="data">当前节点<br>data</th>
+							<th class="threadedData" title="rTag">右标签<br>rTag</th>
+							<th title="rchild">右子节点<br>rChild</th>
+						</tr>
+					</thead>
+					<tbody class="text">
+						<tr>
+							<td id="lchild"></td>
+							<td class="threadedData" id="ltag"></td>
+							<td id="data"></td>
+							<td class="threadedData" id="rtag"></td>
+							<td id="rchild"></td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<tr>
+						<td><button class="text" onclick="changeCurData()">修改当前节点值</button>
+						</td>
+						<td><button class="text" onclick="toPre()">去往前驱节点</button>
+						</td>
+						<td><button class="text" onclick="toPos()">去往后继节点</button>
+						</td>
+					</tr>
+					<tr>
+						<td><button class="text" onclick="toFa()">去往父节点</button>
+						</td>
+						<td><button class="text" onclick="toLC()">去往左子节点</button>
+						</td>
+						<td><button class="text" onclick="toRC()">去往右子节点</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<!-- <dialog id="dialog"><div>asa</div></dialog>-->
+		</aside>
+	</div>
+
+</body>
+
+</html>

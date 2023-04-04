@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>监考端</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/styles/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/styles/room.css'>
+    <link href="#" rel="shortcut icon">
+    <!-- Bootstrap CSS -->
+</head>
+
+<body>
+
+    <header id="nav">
+        <div class="nav--list">
+            <button id="members__button">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                    <path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#ede0e0">
+                        <path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z" />
+                </svg>
+            </button>
+            <a href="#">
+                <h3 id="logo">
+                    <img src="/static/images/logo.png" alt="Site Logo">
+                    <span>webrtc</span>
+                </h3>
+            </a>
+        </div>
+
+        <div id="nav__links">
+            <button type="button" class="btn btn-primary btn-block" id="logout">退出登录</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="room__container">
+
+            <section id="members__container">
+
+                <div id="members__header">
+                    <p>参会者</p>
+                    <strong id="members__count">0</strong>
+                </div>
+
+                <div id="member__list">
+                </div>
+
+            </section>
+
+            <section id="stream__container">
+
+                <div id="stream__box"></div>
+
+                <div id="streams__container">
+                    <div class="video__container" id="user-container">
+                        <video class="video-player" id="screenStream" autoplay playsinline></video>
+                    </div>
+                    <div class="video__container" id="user-container">
+                        <video class="video-player" id="cameraStream" autoplay playsinline></video>
+                    </div>
+                </div>
+
+                <!-- <div class="stream__actions">
+                    <div class="video__container" id="user-container-${uid}">
+                        <video class="video-player" id="user-${uid}" autoplay playsinline></video>
+                    </div>
+                    <div class="video__container" id="user-container-${uid}">
+                        <video class="video-player" id="user-${uid}" autoplay playsinline></video>
+                    </div>
+                </div> -->
+
+            </section>
+
+            <section id="messages__container">
+
+                <div id="messages"></div>
+                <!-- <button id="join-btn">查看对端</button> -->
+                <div id="message__form">
+                    <!-- <input type="text" name="message" placeholder="功能暂未" /> -->
+                    <select id="Select__Members">
+                        <!-- <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option> -->
+                    </select>
+                    <button id="join-stream-btn">查看对端</button>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+</body>
+
+<script src="/static/js/lib/adapter.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<!-- <script src='/static/js/room-peer.js'></script> -->
+<script src='/static/js/peer.js'></script>
+<script src='/static/js/room-rtm.js'></script>
+<!-- <script src='/static/js/room-remote.js'></script> -->
+<!-- <script src='/static/js/room-rtc.js'></script> -->
+
+</html>

@@ -1,0 +1,14 @@
+/.vscode
+/build
+/file
+upload.sh
+DISK/
+
+*.o
+
+*.exe
+*.out
+
+*.log
+
+test
